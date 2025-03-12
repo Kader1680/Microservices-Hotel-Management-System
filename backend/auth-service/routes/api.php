@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\auth_controller;
+use App\Http\Controllers\BookingsController;
+use App\Http\Controllers\RoomController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -34,3 +36,21 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::middleware('auth:sanctum')->get('/validate-token', function (Request $request) {
     return response()->json($request->user());
 });
+
+
+Route::post('/logout', [auth_controller::class, 'logout'])->middleware("auth:sanctum");
+
+
+
+
+// Route::post('/select-payment', [PaymentController::class, 'store']);
+
+
+// route::middleware('auth:sanctum', 'admin')->group(function (){
+//     Route::get('/admin', [AdminController::class, 'index']);
+// });
+
+
+// Route::get('/receptionist', [ReceptionistController::class, 'index'])->middleware('role:receptionist');
+// Route::get('/food-manager', [FoodManagerController::class, 'index'])->middleware('role:food_manager');
+
