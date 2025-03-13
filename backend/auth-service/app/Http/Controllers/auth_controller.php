@@ -58,20 +58,20 @@ class auth_controller extends Controller
     }
 
 
-    protected function authenticated(Request $request, $user)
-    {
-    if ($user->role == 'admin') {
-        return redirect('/admin-dashboard');
-    } elseif ($user->role == 'receptionist') {
-        return redirect('/receptionist-dashboard');
-    } elseif ($user->role == 'food_manager') {
-        return redirect('/food-manager-dashboard');
-    } elseif ($user->role == 'housekeeper') {
-        return redirect('/housekeeping-dashboard');
-    } else {
-        return redirect('/guest-dashboard');
-    }
-}
+    // protected function authenticated(Request $request, $user)
+    // {
+    // if ($user->role == 'admin') {
+    //     return redirect('/admin-dashboard');
+    // } elseif ($user->role == 'receptionist') {
+    //     return redirect('/receptionist-dashboard');
+    // } elseif ($user->role == 'food_manager') {
+    //     return redirect('/food-manager-dashboard');
+    // } elseif ($user->role == 'housekeeper') {
+    //     return redirect('/housekeeping-dashboard');
+    // } else {
+    //     return redirect('/guest-dashboard');
+    // }
+    // }
 
     public function logout(Request $request)
     {

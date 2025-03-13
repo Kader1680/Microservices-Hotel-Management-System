@@ -17,30 +17,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-
-
-Route::post('/register', [auth_controller::class, 'register']);
-Route::post('/login', [auth_controller::class, 'login']);
+Route::post('/register', [auth_controller::class, 'register'])->name('register');
+Route::post('/login', [auth_controller::class, 'login'])->name('login');
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::post('/logout', [auth_controller::class, 'logout']);
-    Route::get('/user', [auth_controller::class, 'user']);
+    Route::post('/logout', [auth_controller::class, 'logout'])->name('logout');
+    Route::get('/user', [auth_controller::class, 'user'])->name('user');
+
 });
-
-
-
-Route::middleware('auth:sanctum')->get('/validate-token', function (Request $request) {
-    return response()->json($request->user());
-});
-
-
-Route::post('/logout', [auth_controller::class, 'logout'])->middleware("auth:sanctum");
-
-
+ 
 
 
 // Route::post('/select-payment', [PaymentController::class, 'store']);

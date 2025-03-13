@@ -18,7 +18,7 @@ class RoomController extends Controller
         return response()->json(['error' => 'Room not found'], 404);
     }
 
-    
+
 
     public function index()
     {
@@ -55,46 +55,46 @@ class RoomController extends Controller
     }
 
 
-    public function addEmployer(Request $request)
-    {
-        $request->validate([
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'role' => 'required|string|max:255',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:4',
-            'phone_number' => 'nullable|digits_between:2,15',
-        ]);
+    // public function addEmployer(Request $request)
+    // {
+    //     $request->validate([
+    //         'first_name' => 'required|string|max:255',
+    //         'last_name' => 'required|string|max:255',
+    //         'role' => 'required|string|max:255',
+    //         'email' => 'required|email|unique:users',
+    //         'password' => 'required|min:4',
+    //         'phone_number' => 'nullable|digits_between:2,15',
+    //     ]);
 
-        $employer = User::create([
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'role' => $request->role,
-            'email' => $request->email,
-            'password' => hash::make($request->password),
-            'phone_number' => $request->phone_number,
-        ]);
+    //     $employer = User::create([
+    //         'first_name' => $request->first_name,
+    //         'last_name' => $request->last_name,
+    //         'role' => $request->role,
+    //         'email' => $request->email,
+    //         'password' => hash::make($request->password),
+    //         'phone_number' => $request->phone_number,
+    //     ]);
 
-        // Automatically log in the user after registration
-        $token = $employer->createToken('auth_token')->plainTextToken;
+    //     // Automatically log in the user after registration
+    //     $token = $employer->createToken('auth_token')->plainTextToken;
 
-        return response()->json([
-            'message' => 'Employer added successfully',
-            'token' => $token,
-            'employer' => $employer,
-        ], 201);
-    }
+    //     return response()->json([
+    //         'message' => 'Employer added successfully',
+    //         'token' => $token,
+    //         'employer' => $employer,
+    //     ], 201);
+    // }
 
 
-    public function getAllEmployer()
-    {
-        $employers = User::all();
+    // public function getAllEmployer()
+    // {
+    //     $employers = User::all();
 
-        return response()->json([
-            'employers' => $employers
+    //     return response()->json([
+    //         'employers' => $employers
              
-        ], 200);
-    }
+    //     ], 200);
+    // }
 
 
     // public function index(Request $request)
