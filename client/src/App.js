@@ -24,6 +24,7 @@ import ChooseRoom from './pages/respsioniste/chooseRoom';
 // import Bookingres from './pages/respsioniste/Booking';
 import Bookingrecepsionist from './pages/respsioniste/Bookingrecepsionist';
 import AllBookings from './pages/respsioniste/allBookingGuest';
+import Chat from './pages/core/chat';
 
 function App() {
   return (
@@ -33,6 +34,9 @@ function App() {
         <Routes>
           {/* <Route path="/" element={<Home />} /> */}
           <Route path="/Select-payment/:BookingId" element={<SelectPayment />} />
+
+          <Route path="/message/:receiverId" element={<Chat />} />
+
         
           {/* <Route path="/respsioniste" element={<Respsioniste />} /> */}
           <Route path="/respsioniste/add-guest" element={<AddGuest />} />

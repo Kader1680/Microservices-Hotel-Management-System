@@ -1,14 +1,18 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from '../../context/AuthContext';
-// 
+
 const Login = () => {
   const [email, setEmail] = useState('');
   
+  
+  const {user} =  useAuth();
+  const receiver_id = user?.id;
   const [password, setPassword] = useState('');
   const [alertMessage, setalertMessage] = useState("")
   const { login } = useAuth();
-
+ 
+ 
   const navigate = useNavigate(); 
   
   const handleSubmit = async (e) => {
@@ -16,7 +20,7 @@ const Login = () => {
     try {
         if (true) {
           await login(email, password)
-          navigate('/rooms');  
+          navigate(`/message/${receiver_id}`);  
         }
         setalertMessage("Email or Password Invalid")
     } catch (error) {
