@@ -25,6 +25,8 @@ import ChooseRoom from './pages/respsioniste/chooseRoom';
 import Bookingrecepsionist from './pages/respsioniste/Bookingrecepsionist';
 import AllBookings from './pages/respsioniste/allBookingGuest';
 import Chat from './pages/core/chat';
+import Foodmanagement from './pages/core/Foodmanagment';
+import Food from './pages/core/Foods';
 
 function App() {
   return (
@@ -55,6 +57,10 @@ function App() {
           <Route path="/admin/user-management" element={<UserManagement />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+
+          <Route path="/food-man" element={<Foodmanagement />} />
+          <Route path="/food" element={<Food />} />
+          
           
           
           

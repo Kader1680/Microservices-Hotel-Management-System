@@ -20,7 +20,7 @@ const Navbar = () => {
                 <div className="lg:flex lg:items-center lg:justify-between">
                     <div className="flex items-center justify-between">
                         <a href="#">
-                            <img className="w-25" src="/logo.png" alt="Hotel Logo" />
+                            <img style={{width:"100px"}} src="/logo.png" alt="Hotel Logo" />
                         </a>
                         <div className="flex lg:hidden">
                             <button 
@@ -78,6 +78,7 @@ const Navbar = () => {
                            
 
                             <Link to="/profile" className="px-3 py-2 mx-3 text-orange-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">{nameAuth}</Link>
+                            <Link to= {`/message/${user?.id}`}   className="px-3 py-2 mx-3 text-orange-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Message</Link>
                            
                             <button 
                                 onClick={logout} 

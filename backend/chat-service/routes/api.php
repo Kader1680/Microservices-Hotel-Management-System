@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
  
  
 Route::middleware('auth:sanctum')->group(function () {
-    Route::post('/messages', [ChatController::class, 'sendMessage']);
-    Route::get('/messages/{receiver_id}', [ChatController::class, 'getMessages']);
-});
+    Route::post('/send-message', [ChatController::class, 'sendMessage']);
+    Route::get('/messages/{sender_id}/{receiver_id}', [ChatController::class, 'getMessages']);
+ });
+
+ 

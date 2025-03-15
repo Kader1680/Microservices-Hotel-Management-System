@@ -20,7 +20,7 @@ const Login = () => {
     try {
         if (true) {
           await login(email, password)
-          navigate(`/message/${receiver_id}`);  
+          navigate(`/`);  
         }
         setalertMessage("Email or Password Invalid")
     } catch (error) {
@@ -38,7 +38,7 @@ const Login = () => {
       >
         <div className="px-6 py-4">
           <div className="flex justify-center mx-auto">
-            <img className="w-25" src="/logo.png" alt="Hotel Logo" />
+            <img  style={{width:"100px"}} src="/logo.png" alt="Hotel Logo" />
           </div>
 
           <h3 className="mt-3 text-xl font-medium text-center text-gray-600 dark:text-gray-200">

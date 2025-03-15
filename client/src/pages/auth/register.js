@@ -44,7 +44,7 @@ const Register = () => {
       <div className="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
         <div className="px-6 py-4">
           <div className="flex justify-center mx-auto">
-            <img className="w-25" src="/logo.png" alt="Hotel Logo" />
+            <img  style={{width:"100px"}}  src="/logo.png" alt="Hotel Logo" />
           </div>
 
           <h3 className="mt-3 text-xl font-medium text-center text-gray-600 dark:text-gray-200">
