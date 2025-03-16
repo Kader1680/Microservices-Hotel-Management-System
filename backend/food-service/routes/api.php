@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::prefix('foods')->group(function () {
+Route::prefix('food-management')->group(function () {
     Route::post('/', [FoodController::class, 'addFood']);
     Route::get('/', [FoodController::class, 'index']);
     Route::get('/{id}', [FoodController::class, 'show']);
