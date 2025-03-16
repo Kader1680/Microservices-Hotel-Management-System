@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Food;
+use App\Models\Foods;
 use Illuminate\Contracts\Cache\Store;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -12,7 +13,7 @@ class FoodController extends Controller
   
   public function index()
   {
-      $foods = Food::all();
+      $foods = Foods::all();
       return response()->json([
             "message" =>'food get successfully',
             "foods" =>  $foods
@@ -27,20 +28,18 @@ class FoodController extends Controller
         'name' => 'required|string|max:255',
         'description' => 'required|string',
         'price' => 'required|min:0',
-        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'image' => 'nullable',
     ]);
 
-     
     if ($request->hasFile('image')) {
         $image = $request->file('image')->store('food_images', 'public');
         $validated['image'] = $image;
     }
-
  
-    $food = Food::create($validated);
+    $food = Foods::create($validated);
 
     
-  
+
     return response()->json([
         'message' => 'Food added successfully',
         'food' => $food,
@@ -51,7 +50,7 @@ class FoodController extends Controller
  
   public function show($id)
   {
-      $food = Food::findOrFail($id);
+      $food = Foods::findOrFail($id);
       return response()->json($food);
   }
 
@@ -65,7 +64,7 @@ class FoodController extends Controller
           'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
       ]);
 
-      $food = Food::findOrFail($id);
+      $food = Foods::findOrFail($id);
 
       if ($request->hasFile('image')) {
           if ($food->image) {
@@ -85,7 +84,7 @@ class FoodController extends Controller
 
   public function destroy($id)
   {
-      $food = Food::findOrFail($id);
+      $food = Foods::findOrFail($id);
 
       if ($food->image) {
           Storage::disk('public')->delete($food->image);

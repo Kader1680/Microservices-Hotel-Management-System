@@ -18,10 +18,12 @@ class ChatController extends Controller
         ]);
 
         // Create message in DB
+        $user = $request->user; 
+
         $message = Message::create([
-            'sender_id' => $request->sender_id,
+            'sender_id' => $user['id'],
             'receiver_id' => $request->receiver_id,
-            'text' => $request->text,
+            'text' => $user['email'],
         ]);
 
         // Send real-time event using Pusher
